@@ -1,0 +1,47 @@
+
+/**头部**/
+.header{ width:100%; float:left; min-width:1190px;font-size:14px; }
+.header a{ color:#555;}
+.top{ width:100%; min-width:1190px; float:left; height:36px; background:#f7f7f7; border-bottom:1px solid #e9e9e9;}
+.top ul{ width:1190px; margin:0 auto;}
+.top ul li{ float:right; padding-left:20px; color:#000; font-size:12px; line-height:35px; position:relative;}
+.top ul li a{ color:#555;}
+.top ul li a:hover{ color:#e6390d; text-decoration:underline;}
+.top ul li i{ font-size:14px; margin-right:6px; color:#555;}
+.top ul li p{ position:absolute;padding:10px; background:#fff; border:1px solid #ddd; top:35px; right:0px; z-index:100;}
+.top ul li.code_l p{ padding:5px 10px; width:80px;}
+.top ul li p span{ text-align:center; width:100%; float:left; line-height:25px;}
+.top ul li p span img{ width:100px; height:100px; border:1px solid #ddd; padding:5px;}
+.top ul li p span.code{ width:14px; height:8px; position:absolute; top:-17px; right:22px;}
+.top ul li p span.code img{ width:auto; height:auto; padding:0; border:0;}
+.head_wai{ width:100%; float:left; min-width:1190px; height:64px; border-bottom:3px solid #e6e6e6;}
+.head{ width:1190px; margin:0 auto;}
+.logo{ width:195px; float:left; margin-top:10px;}
+
+.nav{ width:995px; float:left;}
+.nav ul{ width:560px; float:right;}
+.nav ul li{ float:left; font-size:16px; padding-left:40px; line-height:61px;}
+.nav ul li a{ color:#333; height:64px; float:left;}
+.nav ul li a:hover{ color:#cc3311;}
+.nav ul li.current a{ border-bottom:3px solid #e53d0f;}
+
+
+/**底部**/
+
+.footer{ width:100%; float:left; min-width:1190px;}
+.foot{ width:100%; float:left; height:200px; background:#fafafa; border-top:1px solid #e9e9e9;}
+.foot_nr{ width:1190px; margin:0 auto;}
+.foot_nr ul{ width:300px; float:left; border-left:1px solid #e9e9e9; height:150px; margin-top:25px;}
+.foot_nr ul p{ width:100px; border:1px solid #c4c4c4; float:left; height:100px; padding:5px; margin-bottom:50px;}
+.foot_nr ul span{ font-size:18px; font-weight:bold; color:#333; width:100%; float:left; margin-bottom:10px; padding-left:30px;}
+.foot_nr ul li{ float:left; width:100%; font-size:14px; padding-left:30px;}
+.foot_nr ul li a{ color:#333;}
+.foot_nr ul li a:hover{ color:#e6390d;}
+
+.foot_nr ul.code_bt{ width:290px;border-left:none;}
+.foot_nr ul.code_bt li{ width:180px; float:left; padding-left:18px;}
+.foot_nr ul.code_bt span{ width:180px; float:left; padding-left:18px;}
+
+
+.bottom{ width:100%; float:left; background:#e9e9e9; height:57px;}
+.bottom span{ width:100%; float:left; text-align:center; line-height:57px; color:#333;}

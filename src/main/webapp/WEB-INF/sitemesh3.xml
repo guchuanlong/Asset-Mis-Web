@@ -1,0 +1,15 @@
+<sitemesh>
+  
+  <!-- 对不同的路径，启用不同的装饰器 -->
+ <!-- <mapping path="/admin/*" decorator="/another-decorator.html"/>
+ <mapping path="/*.special.jsp" decorator="/special-decorator.html"/> -->
+ 
+ <!-- 排除，不进行装饰的路径 -->
+  <mapping path="/login.jsp" exclue="true"/>
+  <mapping path="/login" exclue="true"/>
+  <mapping path="/jsp/commons/depart_tree.jsp" exclue="true"/>
+  <mapping path="/commonManage/departtree" exclue="true"/>
+  <mapping path="/maintain/depart/tree" exclue="true"/>
+  <mapping path="/maintain/area/area_tree" exclue="true"/>
+  <mapping path="/login/stafflogin*" exclue="true"/>
+</sitemesh>

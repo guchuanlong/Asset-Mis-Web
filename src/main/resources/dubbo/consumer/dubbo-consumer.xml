@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	">
+
+	<bean id="dubboConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations" value="classpath:dubbo.properties" />
+	</bean>
+
+	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+	<dubbo:application name="${dubbo.appname}" />
+	<dubbo:registry protocol="${dubbo.registry.protocol}"
+		address="${center.dubbo.registry.address}" id="crmRegistry" />
+
+	<!-- <dubbo:registry protocol="${dubbo.registry.protocol}"
+		address="${bis.dubbo.registry.address}" id="bisRegistry" /> -->
+
+	<dubbo:protocol name="${dubbo.protocol}" port="${dubbo.protocol.port}" />
+	<dubbo:consumer timeout="${dubbo.provider.timeout}" />
+
+	<context:component-scan base-package="com.myunihome.myxapp" />
+	
+	<dubbo:reference id="getGnAreaQuerySV" interface="com.myunihome.myxapp.common.api.area.interfaces.IGnAreaQuerySV" registry="crmRegistry"/>
+	
+	<dubbo:reference id="getCacheSV" interface="com.myunihome.myxapp.common.api.cache.interfaces.ICacheSV" registry="crmRegistry"/>
+	
+	<!-- 系统管理菜单 -->
+	<dubbo:reference id="getMenuByOperidSV" interface="com.myunihome.myxapp.sso.api.menu.interfaces.IGetMenuByOperidSV" registry="crmRegistry"/>
+	<!-- 系统操作员管理 -->
+	<dubbo:reference id="getOperatorSV" interface="com.myunihome.myxapp.sso.api.oper.interfaces.IOperatorSV" registry="crmRegistry"/>
+	<!-- 员工管理 -->
+	<dubbo:reference id="gnStaffQuerySV" interface="com.myunihome.myxapp.common.api.staff.interfaces.IGnStaffQuerySV" registry="crmRegistry"/>
+	<!-- 菜单管理 -->
+	<dubbo:reference id="gnMenuManageSV" interface="com.myunihome.myxapp.sys.api.sysmenu.interfaces.IGnMenuManageSV" registry="crmRegistry"/>
+	<!-- 角色管理 -->
+	<dubbo:reference id="gnRoleManageSV" interface="com.myunihome.myxapp.sys.api.sysrole.interfaces.IGnRoleManageSV" registry="crmRegistry"/>
+	<!-- 角色菜单管理 -->
+	<dubbo:reference id="gnRoleMenuManageSV" interface="com.myunihome.myxapp.sys.api.sysrolemenu.interfaces.IGnRoleMenuManageSV" registry="crmRegistry"/>
+	<!-- 员工工号管理 -->
+	<dubbo:reference id="gnStaffNoManageSV" interface="com.myunihome.myxapp.sys.api.sysstaffno.interfaces.IGnStaffNoManageSV" registry="crmRegistry"/>
+	<!-- 操作员管理 -->
+	<dubbo:reference id="gnOperManageSV" interface="com.myunihome.myxapp.sys.api.sysoper.interfaces.IGnOperManageSV" registry="crmRegistry"/>
+	<!-- 操作员角色管理 -->
+	<dubbo:reference id="gnOperRoleManageSV" interface="com.myunihome.myxapp.sys.api.sysoperrole.interfaces.IGnOperRoleManageSV" registry="crmRegistry"/>
+	<!-- 操作员区域管理 -->
+	<dubbo:reference id="gnOperAreaManageSV" interface="com.myunihome.myxapp.sys.api.sysoperarea.interfaces.IGnOperAreaManageSV" registry="crmRegistry"/>
+	<!-- 部门机构管理 -->
+	<dubbo:reference id="gnDepartQuerySV" interface="com.myunihome.myxapp.common.api.depart.interfaces.IGnDepartQuerySV" registry="crmRegistry"/>
+	<!-- 员工管理 -->
+	<dubbo:reference id="staffLoginSV" interface="com.myunihome.myxapp.sso.api.stafflogin.interfaces.IStaffLoginSV" registry="crmRegistry"/>
+	<!-- 系统管理 -->
+	<dubbo:reference id="tabSystemSV" interface="com.myunihome.myxapp.sso.api.system.interfaces.ITabSystemSV" registry="crmRegistry"/>
+	<!-- 系统模块管理 -->
+	<dubbo:reference id="systemModeSV" interface="com.myunihome.myxapp.sso.api.systemmode.interfaces.ISystemModeSV" registry="crmRegistry"/>
+	
+	<dubbo:reference id="iGnTenantQuerySV"
+		interface="com.myunihome.myxapp.common.api.tenant.interfaces.IGnTenantQuerySV" registry="crmRegistry"/>
+	<dubbo:reference id="iProviderForFramePageSV"
+		interface="com.myunihome.myxapp.sys.api.framepage.interfaces.IProviderForFramePageSV" registry="crmRegistry"/>
+
+	<!-- common -->
+	<!-- 部门 -->
+	<dubbo:reference id="iGnDepartMaintainSV"
+		interface="com.myunihome.myxapp.common.api.depart.interfaces.IGnDepartMaintainSV" registry="crmRegistry"/>
+	<!-- 员工 -->	
+	<dubbo:reference id="iGnStaffMaintainSV"
+		interface="com.myunihome.myxapp.common.api.staff.interfaces.IGnStaffMaintainSV" registry="crmRegistry"/>
+	<!-- 小区	 -->	
+	<dubbo:reference id="iGnAreaMaintainSV"
+		interface="com.myunihome.myxapp.common.api.area.interfaces.IGnAreaMaintainSV" registry="crmRegistry"/>
+		
+</beans>

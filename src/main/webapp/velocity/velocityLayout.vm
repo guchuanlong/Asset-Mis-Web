@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>世通网络</title>
+	<link href="$request.getContextPath()/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	<link href="$request.getContextPath()/css/css.css" type="text/css" rel="stylesheet" />
+	<script type="application/javascript" src="$request.getContextPath()/js/home_gundong.js"></script>
+	<script type="application/javascript" src="$request.getContextPath()/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/js/jquery.flexslider-min.js"></script>
+	<script type="application/javascript" src="$request.getContextPath()/js/index.js"></script>
+</head>
+<body>
+	<div class="header" style=" position:relative;">
+		<div class="head">
+			<div class="logo"><a href="#"><img src="$request.getContextPath()/images/logo.png"  /></a></div>
+			<div class="nav">
+				<div class="nava">
+					<div class="yax">
+						<p>
+							<img src="$request.getContextPath()/images/i_city.png"><span>亚信云</span><i class="icon-caret-down"></i>
+						</p>
+						<ul style="display:none;">
+							<li><a href="#">世通宽带</a></li>
+							<li><a href="#">长城网络</a></li>
+							<li><a href="#">歌华有线</a></li>
+						</ul>
+					</div>
+					<div class="user">
+						<p><img src="$request.getContextPath()/images/i_user.png"><span>李想</span><i class="icon-angle-down"></i></p>
+						<ul style="display:none;">
+							<li><a href="#">个人中心</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="naver">
+					<ul>
+						<li class="rus"><a href="#">入网申请</a></li>
+						<li class="xuf"><a href="#">续费</a></li>
+						<li class="big"><a href="#">变更</a></li>
+						<li class="chx"><a href="#">订单查询</a></li>
+					</ul>
+				</div>
+				<div class="ruin">
+					<p class="reorder"></p>
+					<ul style="display:none;">
+						<li><a href="#">世通首页</a></li>
+						<li><a href="#">业务办理</a></li>
+						<li><a href="#">资源信息</a></li>
+						<li><a href="#">订单管理</a></li>
+						<li><a href="#">商品信息</a></li>
+						<li><a href="#">权限分配</a></li>
+						<li><a href="#">费用通知</a></li>
+						<li><a href="#">人员信息</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	##中部开始
+	$screen_content
+	##中部开始
+	
+	<div class="footer">
+		<div class="foot">
+			<div class="foot_left">
+				<ul>
+					<li>
+				 		<span><img src="$request.getContextPath()/images/bt_logo.png"></span>
+				 		<span class="foot_ri">亚信在线版权所有©</span>
+					</li>
+				 	<li>
+						<span>电话：010-82166666</span>
+						<span>传真：010-82166666</span>
+						<span>服务邮箱：service@Asiainfo.com</span>
+				 	</li>
+				</ul>
+			</div>
+			<div class="foot_right">
+				<dl>
+	 				<dd>官方微信账号</dd>
+					<dt><img src="$request.getContextPath()/images/ma.png"></dt>
+				</dl>
+				<dl>
+					<dd>官方微博账号</dd>
+					<dt><img src="$request.getContextPath()/images/ma.png"></dt>
+				</dl>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

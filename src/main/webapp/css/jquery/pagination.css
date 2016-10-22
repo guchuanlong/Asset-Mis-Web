@@ -1,0 +1,60 @@
+.pagination{ 
+	width:100%; 
+	float:left; 
+	margin-top:20px; 
+	padding-bottom:20px;
+}
+
+.pagination ul li{ 
+	float:left; 
+	width:100%; 
+	text-align:right; 
+	font-size:14px;
+}
+
+.pagination ul li a{ 
+	background:#fff; 
+	border:1px solid #e5e5e5; 
+	padding:2px 8px; 
+	margin-right:10px;
+}
+
+.pagination ul li a.current{
+	background:#1c98e7; 
+	border:1px solid #1c98e7; 
+	color:#fff;
+}
+
+.pagination ul li a:hover{
+	background:#1c98e7; 
+	border:1px solid #1c98e7; 
+	color:#fff;
+}
+
+.pagination ul li span{ 
+	margin-right:20px;
+}
+
+.pagination ul li span.prev,span.next{
+	color:#999; 
+	border-color:#999;
+	background:#fff;
+}
+
+.pagination ul li span.current {
+	background:#1c98e7;
+	border:1px solid #1c98e7;
+	color:#fff;
+}
+
+.order_din_input{
+   width:170px; 
+   height:29px;
+   outline:none; 
+   line-height:29px; 
+   font-family:Arial, "微软雅黑";
+   border:1px solid #DEDEDE; 
+   color:#666; 
+   padding:0 5px;
+   transition:background .4s ease-out,border .4s ease-out, box-shadow .4s ease-out;
+}

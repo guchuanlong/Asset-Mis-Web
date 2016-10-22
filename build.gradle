@@ -1,0 +1,179 @@
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+/*编译编码UTF-8*/
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+ext {
+    profile=project.hasProperty('profile')? (project['profile']==""?"aic-dev":project['profile']) : "aic-dev"
+}
+processResources {
+    from('profile/'+profile) {
+        include '**/*'
+    }
+}
+configurations.all { 
+	    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+ 	}
+
+
+war {
+    baseName = "asset"
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+		}
+		resources {
+			srcDir 'src/main/resources'
+		}
+	}
+}
+
+repositories {
+	//mavenLocal()
+	//mavenCentral()
+	//maven{ url "http://223.202.119.155:18081/nexus/content/groups/public/"}
+	//maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
+	maven { url "http://localhost:8081/nexus/content/groups/public/" }
+}
+
+configurations.all { 
+	    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+ 	}
+	
+
+dependencies {
+	//log
+	compile 'com.myunihome.myxapp:myxapp-sdk:1.0-SNAPSHOT'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.4'
+    
+	//spring
+    compile "org.springframework:spring-web:4.1.7.RELEASE"
+    compile "org.springframework:spring-webmvc:4.1.7.RELEASE"
+	compile "org.springframework:spring-tx:4.1.7.RELEASE"
+    compile "org.springframework:spring-jdbc:4.1.7.RELEASE"
+    compile 'org.springframework:spring-context-support:4.1.7.RELEASE'
+    compile "com.fasterxml.jackson.core:jackson-databind:2.6.0"
+    compile "commons-fileupload:commons-fileupload:1.3.1"
+    compile "commons-io:commons-io:2.4"
+	
+	compile 'org.slf4j:log4j-over-slf4j:1.6.6'
+	compile 'net.sf.json-lib:json-lib:2.4:jdk15'
+	compile 'org.apache.velocity:velocity:1.7'
+	compile 'velocity-tools:velocity-tools:2.0-beta1'
+	compile "com.fasterxml.jackson.core:jackson-databind:2.6.0"
+	compile "com.google.code.gson:gson:2.3.1"
+	compile "jstl:jstl:1.2"
+	compile 'com.alibaba:fastjson:1.2.6'
+	//alibaba
+	compile ('com.alibaba:dubbox:2.8.3'){
+		exclude group: 'org.springframework', module: 'spring'
+	}
+	
+    compile 'commons-digester:commons-digester:2.1'
+	
+	compile("com.101tec:zkclient:0.4") {
+        exclude group: 'org.apache.zookeeper', module: 'zookeeper'
+        exclude group: 'log4j', module: 'log4j'
+    }
+    compile "org.apache.zookeeper:zookeeper:3.4.6"
+    compile 'org.apache.curator:curator-framework:2.8.0'
+    compile 'org.apache.curator:curator-recipes:2.8.0'
+    compile "org.javassist:javassist:3.15.0-GA"
+    compile 'org.apache.commons:commons-lang3:3.4'
+    
+    //compile 'org.apache.velocity:velocity:1.7'
+	//compile 'velocity-tools:velocity-tools:2.0-beta1'
+	
+	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.4'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.3'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.3'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.3'
+	
+	//servlet
+	compile "javax.servlet:javax.servlet-api:3.1.0"
+	compile "javax.servlet.jsp:javax.servlet.jsp-api:2.3.1"
+	
+	////zxing qrcode
+	//compile 'com.google.zxing:core:3.2.1'
+	//compile 'com.google.zxing:javase:3.2.1'
+	
+	//common util
+	compile "com.myunihome.myxapp.commons:staff:1.0.1-SNAPSHOT"
+    compile "com.myunihome.myxapp.commons:area:1.0.2-SNAPSHOT"
+    compile "com.myunihome.myxapp.commons:depart:1.0-SNAPSHOT"
+    compile "com.myunihome.myxapp.commons:cache:1.0.3-SNAPSHOT"
+	
+	//sso client
+	compile "com.myunihome.myxapp.sso.client:myxapp-sso-client:1.0-SNAPSHOT"
+	
+	compile 'org.sitemesh:sitemesh:3.0.1'
+	compile 'com.myunihome.myxapp.commons:tenant:1.0-SNAPSHOT'
+	compile 'com.myunihome.myxapp.sys:framepage:1.0-SNAPSHOT'
+	
+	compile fileTree(dir:'lib',include:'**/*.jar')
+	
+	//系统管理菜单
+	compile 'com.myunihome.myxapp.sso:menu:1.0-SNAPSHOT'
+	
+	//系统操作员管理
+	compile 'com.myunihome.myxapp.sso:oper:1.0-SNAPSHOT'
+	
+	//菜单管理
+	compile 'com.myunihome.myxapp.sys:sysmenu:1.0-SNAPSHOT'
+	
+	//角色管理
+	compile 'com.myunihome.myxapp.sys:sysrole:1.0-SNAPSHOT'
+	
+	//员工工号管理
+	compile 'com.myunihome.myxapp.sys:sysstaffno:1.0.2-SNAPSHOT'
+	
+	//操作员管理
+	compile 'com.myunihome.myxapp.sys:sysoper:1.0.2-SNAPSHOT'
+	
+	//操作员－角色管理
+	compile 'com.myunihome.myxapp.sys:sysoperrole:1.0-SNAPSHOT'
+	
+	//操作员－区域管理
+	compile 'com.myunihome.myxapp.sys:sysoperarea:1.0-SNAPSHOT'
+	
+	//角色－菜单管理
+	compile 'com.myunihome.myxapp.sys:sysrolemenu:1.0-SNAPSHOT'
+	
+	//XSS filter
+	compile 'com.myunihome.myxapp.xss:xss-filter:1.0-SNAPSHOT'
+	
+	//员工信息管理
+	compile 'com.myunihome.myxapp.sso:stafflogin:1.0-SNAPSHOT'
+
+	//系统管理
+	compile 'com.myunihome.myxapp.sso:system:1.0-SNAPSHOT'
+	
+	//系统模块管理
+	compile 'com.myunihome.myxapp.sso:systemmode:1.0-SNAPSHOT'
+	//common
+    compile "com.myunihome.myxapp.commons:subject:1.0-SNAPSHOT"
+    compile "com.myunihome.myxapp.commons:subjectmaintain:1.0-SNAPSHOT"
+
+    testCompile(
+            "org.springframework:spring-test:3.2.13.RELEASE",
+            "junit:junit:4.11"
+    )
+	
+	compile 'org.owasp:csrfguard:3.0.0'
+}
+
+eclipse {
+	wtp {
+	  facet {
+		facet name: 'java', version: '1.7'
+		facet name: 'jst.web', version: '3.0'
+		facet name: 'wst.jsdt.web', version: '1.0'
+		  }
+	  }
+  }

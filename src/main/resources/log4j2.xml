@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+    </Console>
+    <RollingFile name="RollingFile" fileName="logs/asset-mis.log"
+                     filePattern="logs/$${date:yyyy-MM}/asset-mis-%d{yyyy-MM-dd}-%i.log.gz">
+       <PatternLayout>
+         <Pattern>%d %-5p [%t] %C{2} (%F:%L) - %m%n</Pattern>
+       </PatternLayout>
+       <Policies>
+         <TimeBasedTriggeringPolicy />
+         <SizeBasedTriggeringPolicy size="250 MB"/>
+       </Policies>
+       <DefaultRolloverStrategy max="20"/>
+     </RollingFile>
+    <Async name="ASYNC">
+      <AppenderRef ref="RollingFile"/>
+      <AppenderRef ref="STDOUT"/>
+    </Async>
+  </Appenders>
+  <Loggers>
+    <logger name="com.myunihome.myxapp" level="error" additivity="false">
+         <AppenderRef ref="RollingFile" />
+         <AppenderRef ref="STDOUT" />
+    </logger>
+    <Root level="error">
+      <AppenderRef ref="RollingFile" />
+      <AppenderRef ref="STDOUT" />
+    </Root>
+  </Loggers>
+</Configuration>
